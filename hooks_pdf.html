@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50 Scroll-Stopping Hooks for Creators & Coaches</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #dc2626 0%, #1f2937 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .pdf-container {
+            background: white;
+            width: 8.5in;
+            min-height: 11in;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #1f2937 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .brand {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            border-radius: 12px;
+            border-left: 4px solid #dc2626;
+            color: white;
+        }
+        
+        .intro p {
+            color: #d1d5db;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .category {
+            margin-bottom: 35px;
+            background: #111827;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            overflow: hidden;
+            border: 1px solid #374151;
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, #dc2626 0%, #1f2937 100%);
+            color: white;
+            padding: 20px 25px;
+            position: relative;
+        }
+        
+        .category-header h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .category-header .emoji {
+            font-size: 1.5rem;
+        }
+        
+        .category-header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .hooks-list {
+            padding: 25px;
+            background: #1f2937;
+        }
+        
+        .hook-item {
+            background: #111827;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #f3f4f6;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .hook-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+            border-color: #dc2626;
+            background: #0f172a;
+        }
+        
+        .hook-item::before {
+            content: '"';
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            font-size: 1.5rem;
+            color: #dc2626;
+            font-weight: bold;
+        }
+        
+        .hook-item::after {
+            content: '"';
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            font-size: 1.5rem;
+            color: #dc2626;
+            font-weight: bold;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #dc2626 0%, #1f2937 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .download-btn {
+            background: white;
+            color: #dc2626;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .pdf-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .download-section {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pdf-container">
+        <div class="header">
+            <div class="brand">smm.daksh</div>
+            <h1>50 Scroll-Stopping Hooks</h1>
+            <p class="subtitle">Free Guide For Creators & Coaches</p>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <p><strong>Perfect for Instagram Reels, Carousels, or Video Scripts</strong></p>
+                <p>Use these hooks to capture attention, connect emotionally, and drive engagement with your audience.</p>
+            </div>
+            
+            <div class="category">
+                <div class="category-header">
+                    <h2><span class="emoji">✅</span> Personal/Relatable Hooks</h2>
+                    <p>Create emotional connection or vulnerability</p>
+                </div>
+                <div class="hooks-list">
+                    <div class="hook-item">Here's something I wish I knew earlier</div>
+                    <div class="hook-item">This story is the truth of where I started</div>
+                    <div class="hook-item">You're not gonna believe what I'm about to tell you</div>
+                    <div class="hook-item">This lesson cost me months to learn — don't make the same mistake</div>
+                    <div class="hook-item">If I had known this 1 year ago, things would be very different</div>
+                    <div class="hook-item">This is the thing nobody tells you when you start out</div>
+                    <div class="hook-item">I used to struggle with this too — here's how I fixed it</div>
+                    <div class="hook-item">This is the most honest I've ever been on camera</div>
+                    <div class="hook-item">This is something most people won't admit</div>
+                    <div class="hook-item">I bet you've felt this way too…</div>
+                </div>
+            </div>
+            
+            <div class="category">
+                <div class="category-header">
+                    <h2><span class="emoji">🎯</span> Problem-Solution Hooks</h2>
+                    <p>Perfect to position your offer, tip, or solution</p>
+                </div>
+                <div class="hooks-list">
+                    <div class="hook-item">Struggling with *****? You're not alone</div>
+                    <div class="hook-item">Here's how I solved ***** in just 3 steps</div>
+                    <div class="hook-item">_____ is the biggest challenge you're actually facing, here's why</div>
+                    <div class="hook-item">Try this if nothing else has worked for you</div>
+                    <div class="hook-item">If ***** feels overwhelming, you need to hear this</div>
+                    <div class="hook-item">Most people do this wrong — don't be one of them</div>
+                    <div class="hook-item">This might be the reason why you're stuck</div>
+                    <div class="hook-item">Tired of *****? This will change everything</div>
+                    <div class="hook-item">This simple shift made me unstoppable</div>
+                    <div class="hook-item">This one tweak fixed everything for me</div>
+                </div>
+            </div>
+            
+            <div class="page-break"></div>
+            
+            <div class="category">
+                <div class="category-header">
+                    <h2><span class="emoji">🧠</span> Authority/Educational Hooks</h2>
+                    <p>Position you as an expert dropping value</p>
+                </div>
+                <div class="hooks-list">
+                    <div class="hook-item">This is one of my best tips</div>
+                    <div class="hook-item">You need to know what I'm about to share</div>
+                    <div class="hook-item">You should use this technique if you *****</div>
+                    <div class="hook-item">Try this if you only have 5 minutes</div>
+                    <div class="hook-item">I'm going to help you master the art of ***** with this video</div>
+                    <div class="hook-item">This video is going to change the way you *****</div>
+                    <div class="hook-item">This is how I do ***** (and it works every time)</div>
+                    <div class="hook-item">You've been doing ***** wrong this whole time — here's the right way</div>
+                    <div class="hook-item">Want faster results? Do this instead of *****</div>
+                    <div class="hook-item">This method helped me grow _x faster</div>
+                </div>
+            </div>
+            
+            <div class="category">
+                <div class="category-header">
+                    <h2><span class="emoji">💬</span> Conversational/Trending Hooks</h2>
+                    <p>Casual, human and scroll-stopping</p>
+                </div>
+                <div class="hooks-list">
+                    <div class="hook-item">Wanna know something weird?</div>
+                    <div class="hook-item">I can't believe I'm about to say this</div>
+                    <div class="hook-item">Here's something you won't believe</div>
+                    <div class="hook-item">Someone just gave me this great idea</div>
+                    <div class="hook-item">This is a really crazy tip that you're gonna love</div>
+                    <div class="hook-item">Let me tell you a quick story</div>
+                    <div class="hook-item">POV: You're me 1 year ago, completely lost…</div>
+                    <div class="hook-item">This one thing? Game changer.</div>
+                    <div class="hook-item">No one's talking about this but they should be</div>
+                    <div class="hook-item">Here's what I'd do if I had to start over today</div>
+                </div>
+            </div>
+            
+            <div class="category">
+                <div class="category-header">
+                    <h2><span class="emoji">🔁</span> Engagement-Driven Hooks</h2>
+                    <p>Drive comments, DMs, saves, shares</p>
+                </div>
+                <div class="hooks-list">
+                    <div class="hook-item">Save this — you'll need it later</div>
+                    <div class="hook-item">Comment '🔥' if this hits home</div>
+                    <div class="hook-item">Tag a friend who needs this</div>
+                    <div class="hook-item">Be honest — have you done this before?</div>
+                    <div class="hook-item">DM me the word 'HELP' if you need support with this</div>
+                    <div class="hook-item">If you've ever felt stuck, this post is for you</div>
+                    <div class="hook-item">I want your honest opinion on this…</div>
+                    <div class="hook-item">Which one are you? 1, 2, or 3?</div>
+                    <div class="hook-item">Let's settle this debate once and for all…</div>
+                    <div class="hook-item">Tell me if I'm crazy for saying this…</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="download-section">
+            <h3>Ready to Level Up Your Content?</h3>
+            <p>Use these hooks to create scroll-stopping content that connects with your audience!</p>
+            <button class="download-btn" onclick="downloadPDF()">📥 Download PDF</button>
+            <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.8;">
+                Click to download a properly formatted PDF with all 50 hooks!
+            </p>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Set font
+            doc.setFont("helvetica");
+            
+            // Add title and branding
+            doc.setFontSize(20);
+            doc.setTextColor(220, 38, 38); // Red color
+            doc.text("smm.daksh", 20, 20);
+            
+            doc.setFontSize(24);
+            doc.setTextColor(0, 0, 0);
+            doc.text("50 Scroll-Stopping Hooks", 20, 35);
+            
+            doc.setFontSize(16);
+            doc.setTextColor(100, 100, 100);
+            doc.text("Free Guide For Creators & Coaches", 20, 50);
+            
+            // Add intro
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text("Perfect for Instagram Reels, Carousels, or Video Scripts", 20, 70);
+            doc.text("Use these hooks to capture attention, connect emotionally, and drive engagement.", 20, 80);
+            
+            let yPosition = 100;
+            
+            // Personal/Relatable Hooks
+            doc.setFontSize(14);
+            doc.setTextColor(220, 38, 38);
+            doc.text("✅ Personal/Relatable Hooks", 20, yPosition);
+            yPosition += 10;
+            
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            const personalHooks = [
+                "Here's something I wish I knew earlier",
+                "This story is the truth of where I started",
+                "You're not gonna believe what I'm about to tell you",
+                "This lesson cost me months to learn — don't make the same mistake",
+                "If I had known this 1 year ago, things would be very different",
+                "This is the thing nobody tells you when you start out",
+                "I used to struggle with this too — here's how I fixed it",
+                "This is the most honest I've ever been on camera",
+                "This is something most people won't admit",
+                "I bet you've felt this way too…"
+            ];
+            
+            personalHooks.forEach(hook => {
+                if (yPosition > 270) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+                doc.text(`• ${hook}`, 25, yPosition);
+                yPosition += 8;
+            });
+            
+            yPosition += 10;
+            
+            // Problem-Solution Hooks
+            if (yPosition > 250) {
+                doc.addPage();
+                yPosition = 20;
+            }
+            
+            doc.setFontSize(14);
+            doc.setTextColor(220, 38, 38);
+            doc.text("🎯 Problem-Solution Hooks", 20, yPosition);
+            yPosition += 10;
+            
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            const problemHooks = [
+                "Struggling with *****? You're not alone",
+                "Here's how I solved ***** in just 3 steps",
+                "_____ is the biggest challenge you're actually facing, here's why",
+                "Try this if nothing else has worked for you",
+                "If ***** feels overwhelming, you need to hear this",
+                "Most people do this wrong — don't be one of them",
+                "This might be the reason why you're stuck",
+                "Tired of *****? This will change everything",
+                "This simple shift made me unstoppable",
+                "This one tweak fixed everything for me"
+            ];
+            
+            problemHooks.forEach(hook => {
+                if (yPosition > 270) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+                doc.text(`• ${hook}`, 25, yPosition);
+                yPosition += 8;
+            });
+            
+            yPosition += 10;
+            
+            // Authority/Educational Hooks
+            if (yPosition > 250) {
+                doc.addPage();
+                yPosition = 20;
+            }
+            
+            doc.setFontSize(14);
+            doc.setTextColor(220, 38, 38);
+            doc.text("🧠 Authority/Educational Hooks", 20, yPosition);
+            yPosition += 10;
+            
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            const authorityHooks = [
+                "This is one of my best tips",
+                "You need to know what I'm about to share",
+                "You should use this technique if you *****",
+                "Try this if you only have 5 minutes",
+                "I'm going to help you master the art of ***** with this video",
+                "This video is going to change the way you *****",
+                "This is how I do ***** (and it works every time)",
+                "You've been doing ***** wrong this whole time — here's the right way",
+                "Want faster results? Do this instead of *****",
+                "This method helped me grow _x faster"
+            ];
+            
+            authorityHooks.forEach(hook => {
+                if (yPosition > 270) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+                doc.text(`• ${hook}`, 25, yPosition);
+                yPosition += 8;
+            });
+            
+            yPosition += 10;
+            
+            // Conversational/Trending Hooks
+            if (yPosition > 250) {
+                doc.addPage();
+                yPosition = 20;
+            }
+            
+            doc.setFontSize(14);
+            doc.setTextColor(220, 38, 38);
+            doc.text("💬 Conversational/Trending Hooks", 20, yPosition);
+            yPosition += 10;
+            
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            const conversationalHooks = [
+                "Wanna know something weird?",
+                "I can't believe I'm about to say this",
+                "Here's something you won't believe",
+                "Someone just gave me this great idea",
+                "This is a really crazy tip that you're gonna love",
+                "Let me tell you a quick story",
+                "POV: You're me 1 year ago, completely lost…",
+                "This one thing? Game changer.",
+                "No one's talking about this but they should be",
+                "Here's what I'd do if I had to start over today"
+            ];
+            
+            conversationalHooks.forEach(hook => {
+                if (yPosition > 270) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+                doc.text(`• ${hook}`, 25, yPosition);
+                yPosition += 8;
+            });
+            
+            yPosition += 10;
+            
+            // Engagement-Driven Hooks
+            if (yPosition > 250) {
+                doc.addPage();
+                yPosition = 20;
+            }
+            
+            doc.setFontSize(14);
+            doc.setTextColor(220, 38, 38);
+            doc.text("🔁 Engagement-Driven Hooks", 20, yPosition);
+            yPosition += 10;
+            
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            const engagementHooks = [
+                "Save this — you'll need it later",
+                "Comment '🔥' if this hits home",
+                "Tag a friend who needs this",
+                "Be honest — have you done this before?",
+                "DM me the word 'HELP' if you need support with this",
+                "If you've ever felt stuck, this post is for you",
+                "I want your honest opinion on this…",
+                "Which one are you? 1, 2, or 3?",
+                "Let's settle this debate once and for all…",
+                "Tell me if I'm crazy for saying this…"
+            ];
+            
+            engagementHooks.forEach(hook => {
+                if (yPosition > 270) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+                doc.text(`• ${hook}`, 25, yPosition);
+                yPosition += 8;
+            });
+            
+            // Save the PDF
+            doc.save('50-Scroll-Stopping-Hooks-by-smm-daksh.pdf');
+        }
+        
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const hookItems = document.querySelectorAll('.hook-item');
+            
+            hookItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Copy to clipboard
+                    navigator.clipboard.writeText(this.textContent).then(() => {
+                        const originalBg = this.style.backgroundColor;
+                        this.style.backgroundColor = '#dc2626';
+                        this.style.color = 'white';
+                        this.style.transform = 'scale(1.02)';
+                        
+                        setTimeout(() => {
+                            this.style.backgroundColor = '#111827';
+                            this.style.color = '#f3f4f6';
+                            this.style.transform = 'scale(1)';
+                        }, 1000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
